@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ahlrenz Arqueza's Space
 
-## Getting Started
+Welcome to the GitHub repository for my personal website, "Ahlrenz Arqueza's Space"! This site is a window into my world as a Full Stack Software Engineer, showcasing my projects, skills, and a bit about who I am both in and out of the tech sphere.
 
-First, run the development server:
+## About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 👋 Hello there! I'm a Full Stack Software Engineer with a knack for crafting sleek and efficient web applications, coupled with a talent for integrating robust cloud services.
+- 👨🏻‍💻 With over 6 years in the tech industry, my journey has been an exciting blend of challenges and triumphs.
+- 🤸‍♀️ When not coding, I love exploring the latest tech trends and brainstorming innovative solutions. I'm passionate about bringing web app ideas to life and discussing the wonders of cloud technology. Let's make something awesome together!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This website is based on Next.js and was bootstrapped with `create-next-app`. Next.js offers a robust framework for building user-friendly, high-performance websites, and it's been an incredible tool in bringing "Ahlrenz Arqueza's Space" to life.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Notes
 
-## Learn More
+- **Work in Progress**: This repository is still under development. Features may be added or modified as the project evolves.
+- **Non-Commercial Use**: While this repository is available for public viewing, the content and codebase should not be repurposed for commercial use without explicit permission.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact Me
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I'd love to connect! Whether it's about potential collaborations, tech discussions, or just to say hi, feel free to reach out.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **LinkedIn**: [Profile](https://www.linkedin.com/in/ahlrenz-arqueza/)
+- **WhatsApp**: +639053311897 (WhatsApp)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for visiting my repository!

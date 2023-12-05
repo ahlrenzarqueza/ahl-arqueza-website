@@ -1,0 +1,7 @@
+.sidebar {
+  filter: url("#goo");
+}
+
+.active-circle {
+  transition: transform 0.2s ease;
+}
