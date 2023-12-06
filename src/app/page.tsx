@@ -10,6 +10,7 @@ import WorkInProgressInfo from "./components/wip-info/wip-info";
 import ContactMe from "./components/contactme/contactme";
 
 export default function Home() {
+  const unbindScrollSnap = useRef<(() => void) | null>(null);
   const [activeSection, setActiveSection] = useState<SiteSections>(
     SiteSections.HOME
   );
@@ -25,25 +26,44 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    let unbindScrollSnap: () => void;
     const handleResize = () => {
       if (!scrollContainerRef.current) return;
       handleScroll(scrollContainerRef.current as HTMLDivElement);
-
-      const scrollElement = scrollContainerRef.current;
-      const { unbind } = createScrollSnap(scrollElement, {
-        snapDestinationY: "100%",
-      });
-      unbindScrollSnap = unbind;
     };
+
+    // Call one-time to initialize scroll percentage value
+    handleResize();
 
     // Add window resize event to call `handleScroll` function to update scroll percentage
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
-      unbindScrollSnap?.();
     };
   }, [handleScroll]);
+
+  useEffect(() => {
+    const initScrollSnap = () => {
+      if (!scrollContainerRef.current) return;
+
+      unbindScrollSnap.current?.();
+
+      const scrollElement = scrollContainerRef.current;
+      const { unbind } = createScrollSnap(scrollElement, {
+        snapDestinationY: "100%",
+      });
+      unbindScrollSnap.current = unbind;
+    };
+
+    // Call one-time to initialize scroll snap
+    initScrollSnap();
+
+    // Add window resize event to initialize scroll snap every time the window is resized
+    window.addEventListener("resize", initScrollSnap);
+    return () => {
+      window.removeEventListener("resize", initScrollSnap);
+      unbindScrollSnap.current?.();
+    };
+  }, []);
 
   return (
     <main

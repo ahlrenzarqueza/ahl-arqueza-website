@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ViewportProvider } from "./hooks/useViewport";
+import Analytics from "./lib/gtm-component/gtm-component";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
+        <Analytics />
         <ViewportProvider>{children}</ViewportProvider>
       </body>
     </html>

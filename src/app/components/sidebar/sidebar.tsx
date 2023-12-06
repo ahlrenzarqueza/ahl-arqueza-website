@@ -101,6 +101,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
+          hashSpy
         >
           <div
             className="flex items-center justify-center h-8 md:h-24 w-16 px-3 md:px-0"
@@ -121,6 +122,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
+          hashSpy
         >
           <UserIcon
             className={classNames(
@@ -136,6 +138,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
+          hashSpy
         >
           <BriefcaseIcon
             className={classNames(
@@ -151,6 +154,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
+          hashSpy
         >
           <CodeBracketIcon
             className={classNames(
@@ -166,6 +170,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
+          hashSpy
         >
           <PresentationChartBarIcon
             className={classNames(
@@ -181,6 +186,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
+          hashSpy
         >
           <PhoneIcon
             className={classNames(
