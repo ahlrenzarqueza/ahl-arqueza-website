@@ -44,10 +44,10 @@ export default function Analytics() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            (window.dataLayer = window.dataLayer || [];
+            window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-        
+            
             gtag('config', '${gtmId}');
           `,
         }}
