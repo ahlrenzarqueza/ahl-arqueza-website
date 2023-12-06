@@ -70,8 +70,8 @@ export default function Experience() {
         </div>
       </div>
 
-      <div className="flex items-center mt-4">
-        <div className="rounded-full border-2 border-green-500 w-8 h-8 text-center animate-spin">
+      <div className="flex items-start mt-4">
+        <div className="rounded-full border-2 border-green-500 w-8 h-8 text-center animate-spin flex-shrink-0">
           ֯
         </div>
         <div className="flex flex-col ml-2">

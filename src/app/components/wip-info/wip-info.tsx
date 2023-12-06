@@ -30,7 +30,11 @@ export default function WorkInProgressInfo() {
       </p>
       <p>
         - Track the progress of this website project on this{" "}
-        <a className="underline text-green-500" target="_blank" href="">
+        <a
+          className="underline text-green-500"
+          target="_blank"
+          href="https://github.com/ahlrenzarqueza/ahl-arqueza-website"
+        >
           GitHub repository
         </a>
       </p>

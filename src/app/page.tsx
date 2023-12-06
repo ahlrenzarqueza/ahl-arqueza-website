@@ -16,9 +16,8 @@ export default function Home() {
   const scrollContainerRef = useRef<HTMLElement | null>(null);
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
-  const handleScroll = useCallback((event: React.UIEvent<HTMLDivElement>) => {
-    const { scrollTop, scrollHeight, clientHeight } =
-      event.target as HTMLDivElement;
+  const handleScroll = useCallback((target: HTMLDivElement) => {
+    const { scrollTop, scrollHeight, clientHeight } = target as HTMLDivElement;
     const totalScroll = scrollHeight - clientHeight;
     const currentScroll = scrollTop;
     const scrollPercentage = (currentScroll / totalScroll) * 100;
@@ -26,28 +25,37 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!scrollContainerRef.current) return;
-    const scrollElement = scrollContainerRef.current;
-    const { unbind } = createScrollSnap(scrollElement, {
-      snapDestinationY: "100%",
-    });
+    let unbindScrollSnap: () => void;
+    const handleResize = () => {
+      if (!scrollContainerRef.current) return;
+      handleScroll(scrollContainerRef.current as HTMLDivElement);
 
-    return () => {
-      unbind();
+      const scrollElement = scrollContainerRef.current;
+      const { unbind } = createScrollSnap(scrollElement, {
+        snapDestinationY: "100%",
+      });
+      unbindScrollSnap = unbind;
     };
-  }, []);
+
+    // Add window resize event to call `handleScroll` function to update scroll percentage
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      unbindScrollSnap?.();
+    };
+  }, [handleScroll]);
 
   return (
     <main
       id="scrollContainer"
       className="flex flex-col md:flex-row h-screen flex-nowrap bg-black overflow-auto overflow-x-hidden"
-      onScroll={handleScroll}
+      onScroll={(evt) => handleScroll(evt.target as HTMLDivElement)}
       ref={scrollContainerRef}
     >
-      <div className="flex flex-col flex-1 items-center justify-between overflow-visible">
+      <div className="flex flex-col flex-1 items-center justify-between overflow-visible pb-12 md:pb-0">
         <Element
           name={SiteSections.HOME}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden"
         >
           <p className="mb-2 md:mb-6 md:text-3xl">Hi! I am</p>
           <h1 className="text-green-500 font-semibold text-3xl md:text-7xl mb-2 md:mb-6">
@@ -72,21 +80,21 @@ export default function Home() {
 
         <Element
           name={SiteSections.ABOUT}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <About />
         </Element>
 
         <Element
           name={SiteSections.EXPERIENCE}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <Experience />
         </Element>
 
         <Element
           name={SiteSections.SKILLS}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
             Skills
@@ -96,7 +104,7 @@ export default function Home() {
 
         <Element
           name={SiteSections.PROJECTS}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
             Projects
@@ -106,7 +114,7 @@ export default function Home() {
 
         <Element
           name={SiteSections.CONTACT}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <ContactMe />
         </Element>
