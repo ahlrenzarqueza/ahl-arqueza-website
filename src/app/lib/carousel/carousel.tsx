@@ -73,9 +73,9 @@ export const Carousel = <T extends any>({
           })
         )}
       </ul>
-      <div className={styles.pageIndicator}>
+      {/* <div className={styles.pageIndicator}>
         {activePageIndex + 1} / {pages.length}
-      </div>
+      </div> */}
       <div className={styles.controls}>
         <button
           disabled={activePageIndex === 0}
@@ -149,11 +149,11 @@ export const CarouselItem = ({
         [styles.itemActive]: isActive,
       })}
     >
-      <div className={styles.itemText}>
-        <h2 className={styles.itemTitle}>{title}</h2>
-        <p className={styles.itemSubtitle}>{subtitle}</p>
-      </div>
-      <Image src={src} className={styles.itemImage} alt="" />
+      <Image
+        src={src}
+        className={classNames(styles.itemImage)}
+        alt={subtitle}
+      />
     </li>
   );
 };

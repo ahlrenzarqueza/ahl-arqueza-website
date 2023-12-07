@@ -149,11 +149,11 @@ export default function Home() {
           name={SiteSections.PROJECTS}
           className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
         >
-          <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
+          {/* <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
             Projects
           </h1>
-          <WorkInProgressInfo />
-          {/* <Projects /> */}
+          <WorkInProgressInfo /> */}
+          <Projects />
         </Element>
 
         <Element
