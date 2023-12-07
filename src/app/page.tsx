@@ -8,12 +8,23 @@ import About from "./components/about/about";
 import Experience from "./components/experience/experience";
 import WorkInProgressInfo from "./components/wip-info/wip-info";
 import ContactMe from "./components/contactme/contactme";
+import Projects from "./components/projects/projects";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const unbindScrollSnap = useRef<(() => void) | null>(null);
-  const [activeSection, setActiveSection] = useState<SiteSections>(
-    SiteSections.HOME
-  );
+
+  const sectionFromSearch = searchParams.get("section");
+  const [activeSection, setActiveSection] = useState<SiteSections>(() => {
+    if (
+      Object.values(SiteSections).includes(sectionFromSearch as SiteSections)
+    ) {
+      return sectionFromSearch as SiteSections;
+    }
+    return SiteSections.HOME;
+  });
   const scrollContainerRef = useRef<HTMLElement | null>(null);
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -24,6 +35,18 @@ export default function Home() {
     const scrollPercentage = (currentScroll / totalScroll) * 100;
     setScrollPercentage(scrollPercentage);
   }, []);
+
+  // Set pathname when section changes
+  useEffect(() => {
+    if (searchParams.get("section") === activeSection) return;
+
+    if (activeSection === SiteSections.HOME) {
+      router.push("/");
+    } else {
+      router.push(`/?section=${activeSection}`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSection]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -124,12 +147,13 @@ export default function Home() {
 
         <Element
           name={SiteSections.PROJECTS}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
         >
           <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
             Projects
           </h1>
           <WorkInProgressInfo />
+          {/* <Projects /> */}
         </Element>
 
         <Element

@@ -11,8 +11,9 @@ import {
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import "./sidebar.css";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useViewport } from "@/app/hooks/useViewport";
+import { debounce } from "lodash";
 
 interface SidebarProps {
   section: SiteSections;
@@ -30,9 +31,17 @@ export default function Sidebar({
   const activeColorClass = (target: SiteSections) =>
     section === target ? "text-white" : "text-gray-600";
 
-  const handleSetActive = (to: string) => {
-    setActiveSection(to as SiteSections);
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleSetActive = useCallback(
+    debounce(
+      (to: string) => {
+        setActiveSection(to as SiteSections);
+      },
+      300,
+      { leading: false, trailing: true }
+    ),
+    [setActiveSection]
+  );
 
   const [anchorNavRect, setAnchorNavRect] = useState<DOMRect | null>(null);
 
@@ -91,6 +100,9 @@ export default function Sidebar({
             transform: isMobile
               ? `translateX(${scrollPercentage * 5}%) scale(1.2)`
               : `translateY(${scrollPercentage * 5}%) scale(1.5)`,
+            WebkitTransform: isMobile
+              ? `translateX(${scrollPercentage * 5}%) scale(1.2)`
+              : `translateY(${scrollPercentage * 5}%) scale(1.5)`,
             visibility: anchorNavRect ? "visible" : "hidden",
           }}
         ></div>
@@ -101,7 +113,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
-          hashSpy
+          duration={300}
         >
           <div
             className="flex items-center justify-center h-8 md:h-24 w-16 px-3 md:px-0"
@@ -122,7 +134,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
-          hashSpy
+          duration={300}
         >
           <UserIcon
             className={classNames(
@@ -138,7 +150,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
-          hashSpy
+          duration={300}
         >
           <BriefcaseIcon
             className={classNames(
@@ -154,7 +166,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
-          hashSpy
+          duration={300}
         >
           <CodeBracketIcon
             className={classNames(
@@ -170,7 +182,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
-          hashSpy
+          duration={300}
         >
           <PresentationChartBarIcon
             className={classNames(
@@ -186,7 +198,7 @@ export default function Sidebar({
           spy
           containerId="scrollContainer"
           onSetActive={handleSetActive}
-          hashSpy
+          duration={300}
         >
           <PhoneIcon
             className={classNames(

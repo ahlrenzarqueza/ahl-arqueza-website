@@ -23,7 +23,9 @@ export default function Analytics() {
 
   useEffect(() => {
     if (pathname) {
-      pageview(pathname);
+      pageview(
+        `${pathname}${searchParams.toString() ? `?${searchParams}` : ""}`
+      );
     }
   }, [pathname, searchParams]);
 

@@ -3,5 +3,6 @@
 }
 
 .active-circle {
-  transition: transform 0.2s ease;
+  transition: transform 0.2s linear;
+  -webkit-transition: transform 0.2s linear;
 }
