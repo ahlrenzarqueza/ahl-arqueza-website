@@ -13,8 +13,8 @@ export default function About() {
       </p>
 
       <p className="md:text-2xl mb-2 md:mb-6">
-        📺 Having navigated the tech industry for over six(6) years, I&apos;ve
-        developed the 🩷 for coding that makes me accomplish every project I
+        👨🏻‍💻 Having navigated the tech industry for over six(6) years, I&apos;ve
+        developed the love for coding that makes me accomplish every project I
         take, regardless of tech stack.
       </p>
 

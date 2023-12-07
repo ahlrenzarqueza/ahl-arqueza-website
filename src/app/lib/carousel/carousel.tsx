@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { CSSProperties, useEffect } from "react";
 import classNames from "classnames";
 import { useSnapCarousel } from "react-snap-carousel";
 import styles from "./carousel.module.css";
@@ -13,6 +13,7 @@ export interface CarouselProps<T> {
   ) => React.ReactElement<CarouselItemProps>;
   readonly scrollPadding?: boolean;
   readonly className?: string;
+  readonly style?: CSSProperties;
 }
 
 export interface CarouselRenderItemProps<T> {
@@ -27,6 +28,7 @@ export const Carousel = <T extends any>({
   renderItem,
   scrollPadding = false,
   className,
+  style,
 }: CarouselProps<T>) => {
   const {
     scrollRef,
@@ -62,6 +64,7 @@ export const Carousel = <T extends any>({
       className={classNames(className, styles.root, {
         [styles.scrollPadding]: scrollPadding,
       })}
+      style={style}
     >
       <ul className={classNames(styles.scroll, "z-0")} ref={scrollRef}>
         {items.map((item, index) =>
