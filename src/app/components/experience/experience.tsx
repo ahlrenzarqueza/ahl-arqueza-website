@@ -12,7 +12,7 @@ export default function Experience() {
   const experienceItems = [
     {
       children: (
-        <div className="flex mb-4">
+        <div className="flex">
           <Link
             className="mr-2 md:mr-8 flex-shrink-0"
             href="https://roundtable.alltakes.com"
@@ -28,14 +28,17 @@ export default function Experience() {
             <span className="text-xl md:text-4xl text-green-500">
               Full Stack Software Engineer
             </span>
-            <span className="uppercase">
+            <span className="uppercase text-sm md:text-base">
               Oct 2021 - Present{" "}
               <span className="text-gray-500">(FULL-TIME)</span>
             </span>
-            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
               <span>AllTakes</span>
-              <span className="text-gray-500">|</span>
-              <span>🇺🇸 San Francisco, California</span>
+              <span className="text-gray-500 hidden md:inline">|</span>
+              <span>
+                🇺🇸 San Francisco, <span className="inline md:hidden">CA</span>
+                <span className="hidden md:inline">California</span>
+              </span>
             </span>
 
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
@@ -56,7 +59,7 @@ export default function Experience() {
     },
     {
       children: (
-        <div className="flex mb-4">
+        <div className="flex">
           <Link
             className="mr-2 md:mr-8 flex-shrink-0"
             href="https://www.outliant.com/"
@@ -73,14 +76,17 @@ export default function Experience() {
               Full Stack Software Engineer
             </span>
 
-            <span className="uppercase">
+            <span className="uppercase text-sm md:text-base">
               Mar 2022 - Jun 2023{" "}
               <span className="text-gray-500">(CONTRACTOR)</span>
             </span>
-            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
               <span className="">Outliant</span>
-              <span className="text-gray-500">|</span>
-              <span>🇺🇸 Austin, Texas</span>
+              <span className="text-gray-500 hidden md:inline">|</span>
+              <span>
+                🇺🇸 Austin, <span className="inline md:hidden">TX</span>
+                <span className="hidden md:inline">Texas</span>
+              </span>
             </span>
 
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
@@ -103,7 +109,7 @@ export default function Experience() {
     },
     {
       children: (
-        <div className="flex mb-4">
+        <div className="flex">
           <Link
             className="mr-2 md:mr-8 flex-shrink-0"
             href="https://research.samsung.com/srph?gad_source=1&gclid=CjwKCAiAg9urBhB_EiwAgw88mWdfFoh7GxJ53_ZasKDs3UUqSOtDkKR_lA8ujvSm_u4CBsmbBjSCChoCPjMQAvD_BwE"
@@ -120,14 +126,17 @@ export default function Experience() {
               Frontend Engineer
             </span>
 
-            <span className="uppercase">
+            <span className="uppercase text-sm md:text-base">
               Oct 2020 - Mar 2022{" "}
               <span className="text-gray-500">(FULL-TIME)</span>
             </span>
-            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
               <span className="">Samsung Electronics</span>
-              <span className="text-gray-500">|</span>
-              <span>🇵🇭 Taguig, Manila</span>
+              <span className="text-gray-500 hidden md:inline">|</span>
+              <span>
+                🇵🇭 Taguig, <span className="inline md:hidden">MNL</span>
+                <span className="hidden md:inline">Manila</span>
+              </span>
             </span>
 
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
@@ -149,7 +158,7 @@ export default function Experience() {
     },
     {
       children: (
-        <div className="flex mb-4">
+        <div className="flex">
           <Link
             className="mr-2 md:mr-8 flex-shrink-0"
             href="https://sqreemtech.com/"
@@ -166,14 +175,19 @@ export default function Experience() {
               Systems Analyst
             </span>
 
-            <span className="uppercase">
+            <span className="uppercase text-sm md:text-base">
               Oct 2020 - Mar 2022{" "}
               <span className="text-gray-500">(FULL-TIME)</span>
             </span>
-            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
-              <span className="">Sqreem Technologies Pte. Ltd.</span>
-              <span className="text-gray-500">|</span>
-              <span>🇵🇭 Manila and 🇸🇬 Singapore</span>
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
+              <span className="">Sqreemtech Pte. Ltd.</span>
+              <span className="text-gray-500 hidden md:inline">|</span>
+              <span>
+                🇵🇭 <span className="inline md:hidden">MNL</span>
+                <span className="hidden md:inline">Manila</span> & 🇸🇬{" "}
+                <span className="inline md:hidden">SG</span>
+                <span className="hidden md:inline">Singapore</span>
+              </span>
             </span>
 
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
@@ -206,7 +220,7 @@ export default function Experience() {
         items={experienceItems}
         renderItem={({ index, isActive, isSnapPoint, item }) => (
           <CarouselItem
-            className="p-4 md:p-8 md:px-12"
+            className="flex items-center p-4 md:p-8 md:px-12"
             key={index}
             isSnapPoint={isSnapPoint}
             isActive={isActive}

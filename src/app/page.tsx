@@ -1,5 +1,5 @@
 "use client";
-import { Element } from "react-scroll";
+import { Element, scroller } from "react-scroll";
 import Sidebar from "@/app/components/sidebar/sidebar";
 import { SiteSections } from "@/types";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -15,6 +15,8 @@ import MotionImageCard from "./lib/motion-card/motion-card";
 import PortraitOne from "@/../public/portrait-images/portrait-1.png";
 import PortraitTwo from "@/../public/portrait-images/portrait-2.png";
 import classNames from "classnames";
+
+import "./page.css";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -46,14 +48,23 @@ export default function Home() {
     if (searchParams.get("section") === activeSection) return;
 
     if (activeSection === SiteSections.HOME) {
-      router.push("/");
+      router.push("/", { shallow: true });
     } else {
-      router.push(`/?section=${activeSection}`);
+      router.push(`/?section=${activeSection}`, { shallow: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSection]);
 
   useEffect(() => {
+    // Scroll initially to section from search params
+    if (searchParams.get("section") !== SiteSections.HOME) {
+      scroller.scrollTo(searchParams.get("section") as string, {
+        duration: 0,
+        smooth: false,
+        containerId: "scrollContainer",
+      });
+    }
+
     const handleResize = () => {
       if (!scrollContainerRef.current) return;
       handleScroll(scrollContainerRef.current as HTMLDivElement);
@@ -67,6 +78,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [handleScroll]);
 
   useEffect(() => {
@@ -96,14 +108,14 @@ export default function Home() {
   return (
     <main
       id="scrollContainer"
-      className="flex flex-col md:flex-row h-screen w-screen flex-nowrap bg-black overflow-auto overflow-x-hidden"
+      className="flex flex-col md:flex-row w-screen flex-nowrap bg-black overflow-auto overflow-x-hidden"
       onScroll={(evt) => handleScroll(evt.target as HTMLDivElement)}
       ref={scrollContainerRef}
     >
-      <div className="flex flex-col flex-1 items-center justify-between overflow-visible pb-12 md:pb-0 w-screen md:w-5/6">
+      <div className="relative flex flex-col flex-1 items-center justify-between overflow-visible h-full w-screen md:w-5/6">
         <Element
           name={SiteSections.HOME}
-          className="relative section flex flex-col flex-1 justify-center px-12 min-h-screen md:min-w-full max-h-screen overflow-hidden"
+          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 min-h-full md:min-w-full overflow-hidden pb-12 md:pb-0 "
         >
           <p className="mb-2 md:mb-6 md:text-3xl">Hi! I am</p>
           <h1 className="text-green-500 font-semibold text-3xl md:text-7xl mb-2 md:mb-6">
@@ -130,7 +142,7 @@ export default function Home() {
             className={classNames(
               "absolute w-3/4 md:w-4/12",
               "transform -translate-x-1/2",
-              "md:-translate-x-0 left-1/2 md:left-2/3 bottom-12 md:bottom-0",
+              "md:-translate-x-0 left-1/2 md:left-2/3 bottom-24 md:bottom-0",
               "opacity-50 md:opacity-100"
             )}
             src={PortraitOne}
@@ -139,14 +151,14 @@ export default function Home() {
 
         <Element
           name={SiteSections.ABOUT}
-          className="relative section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <About />
           <MotionImageCard
             className={classNames(
               "absolute w-3/4 md:w-4/12",
               "transform -translate-x-1/2",
-              "md:-translate-x-0 left-1/2 md:left-2/3 bottom-12 md:bottom-0",
+              "md:-translate-x-0 left-1/2 md:left-2/3 bottom-24 md:bottom-0",
               "opacity-50 md:opacity-100"
             )}
             src={PortraitTwo}
@@ -155,14 +167,14 @@ export default function Home() {
 
         <Element
           name={SiteSections.EXPERIENCE}
-          className="relative section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
+          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
         >
           <Experience />
         </Element>
 
         <Element
           name={SiteSections.SKILLS}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
             Skills
@@ -172,14 +184,14 @@ export default function Home() {
 
         <Element
           name={SiteSections.PROJECTS}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
         >
           <Projects />
         </Element>
 
         <Element
           name={SiteSections.CONTACT}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <ContactMe />
         </Element>

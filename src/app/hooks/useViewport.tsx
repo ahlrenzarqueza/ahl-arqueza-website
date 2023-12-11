@@ -1,4 +1,5 @@
 "use client";
+import { throttle } from "lodash";
 import React, {
   FC,
   ReactNode,
@@ -60,14 +61,22 @@ const ViewportProvider: FC<ViewportProps> = ({ children, reqViewport }) => {
   );
 
   useEffect(() => {
+    let vh = window.innerHeight * 0.01;
+    // Set CSS custom variable `--vh` value to use actual viewport height (for mobile browsers)
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
     // initial state
     const initialViewportCS = getDeviceConfig(window.innerWidth);
     setCurrentViewport(initialViewportCS);
 
-    const calcInnerWidth = () => {
+    const calcInnerWidth = throttle(() => {
       const newViewport = getDeviceConfig(window.innerWidth);
       setCurrentViewport(newViewport);
-    };
+
+      let vh = window.innerHeight * 0.01;
+      // Set CSS custom variable `--vh` value to use actual viewport height (for mobile browsers)
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
 
     // add event listener
     window.addEventListener("resize", calcInnerWidth);
