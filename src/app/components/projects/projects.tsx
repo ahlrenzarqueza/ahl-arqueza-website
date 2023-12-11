@@ -3,6 +3,7 @@
 import { Carousel, CarouselItem } from "@/app/lib/carousel/carousel";
 import RoundtableImage from "@/../public/project-images/Roundtable.png";
 import AutocadoImage from "@/../public/project-images/Autocado.png";
+import FreezerIoTImage from "@/../public/project-images/FreezerIoT.png";
 
 const items = [
   {
@@ -16,7 +17,7 @@ const items = [
     subtitle: "Automotive parts E-commerce site built on Next.js",
     src: AutocadoImage,
   },
-  // { title: "Freezer IoT Mobile App", subtitle: "", src: AutocadoImage },
+  { title: "Freezer IoT Mobile App", subtitle: "", src: FreezerIoTImage },
 ];
 
 export default function Projects() {
