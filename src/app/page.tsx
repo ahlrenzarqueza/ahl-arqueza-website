@@ -151,7 +151,7 @@ export default function Home() {
 
         <Element
           name={SiteSections.ABOUT}
-          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full overflow-hidden pb-12 md:pb-0"
         >
           <About />
           <MotionImageCard
@@ -167,14 +167,14 @@ export default function Home() {
 
         <Element
           name={SiteSections.EXPERIENCE}
-          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
+          className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full w-full overflow-hidden pb-12 md:pb-0"
         >
           <Experience />
         </Element>
 
         <Element
           name={SiteSections.SKILLS}
-          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full overflow-hidden pb-12 md:pb-0"
         >
           <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
             Skills
@@ -184,14 +184,14 @@ export default function Home() {
 
         <Element
           name={SiteSections.PROJECTS}
-          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full w-full overflow-hidden pb-12 md:pb-0"
         >
           <Projects />
         </Element>
 
         <Element
           name={SiteSections.CONTACT}
-          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full overflow-hidden pb-12 md:pb-0"
         >
           <ContactMe />
         </Element>
