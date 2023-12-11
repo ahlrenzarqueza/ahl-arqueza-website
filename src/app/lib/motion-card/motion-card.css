@@ -1,0 +1,17 @@
+.card {
+  font-size: 164px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  transform-origin: 10% 60%;
+}
+
+.card-container {
+  position: absolute;
+  bottom: 0;
+}
+
+.polygon {
+  transform-origin: 10% 60%;
+}

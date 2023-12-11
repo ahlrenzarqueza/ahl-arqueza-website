@@ -9,7 +9,11 @@ import Experience from "./components/experience/experience";
 import WorkInProgressInfo from "./components/wip-info/wip-info";
 import ContactMe from "./components/contactme/contactme";
 import Projects from "./components/projects/projects";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import MotionImageCard from "./lib/motion-card/motion-card";
+
+import PortraitOne from "@/../public/portrait-images/portrait-1.png";
+import PortraitTwo from "@/../public/portrait-images/portrait-2.png";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -98,7 +102,7 @@ export default function Home() {
       <div className="flex flex-col flex-1 items-center justify-between overflow-visible pb-12 md:pb-0">
         <Element
           name={SiteSections.HOME}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden"
+          className="relative section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen md:min-w-full max-h-screen overflow-hidden"
         >
           <p className="mb-2 md:mb-6 md:text-3xl">Hi! I am</p>
           <h1 className="text-green-500 font-semibold text-3xl md:text-7xl mb-2 md:mb-6">
@@ -106,7 +110,8 @@ export default function Home() {
           </h1>
           <p className="flex flex-col md:block mb-2 md:mb-6 md:text-3xl">
             <span className="mb-2 md:mb-0">
-              💬 You can call me <span className="font-semibold">Ahl</span>
+              💬 You can call me{" "}
+              <span className="font-semibold text-green-500">Ahl</span>
             </span>
             <span className="mb-2 md:mb-0 md:ml-12">🗣️ /æl/</span>
             <span className="md:ml-12">🏳️‍🌈 He / Him</span>
@@ -119,13 +124,22 @@ export default function Home() {
             🇵🇭 Based in{" "}
             <span className="font-semibold">Manila, Philippines</span>
           </p>
+
+          <MotionImageCard
+            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100"
+            src={PortraitOne}
+          />
         </Element>
 
         <Element
           name={SiteSections.ABOUT}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="relative section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
         >
           <About />
+          <MotionImageCard
+            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100"
+            src={PortraitTwo}
+          />
         </Element>
 
         <Element
@@ -149,10 +163,6 @@ export default function Home() {
           name={SiteSections.PROJECTS}
           className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
         >
-          {/* <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
-            Projects
-          </h1>
-          <WorkInProgressInfo /> */}
           <Projects />
         </Element>
 
