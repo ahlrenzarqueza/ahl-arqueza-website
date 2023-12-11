@@ -26,13 +26,9 @@ export default function Projects() {
       <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-2 md:mb-6">
         Projects
       </h1>
-      <h3 className="mb-2 md:mb-4">
-        These are only some of the projects I have worked on (that I am allowed
-        to share). Stay tuned for more! 🥞
-      </h3>
       <Carousel
-        className="relative flex-1 w-full md:max-w-3xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-6xl self-center rounded-md"
-        style={{ maxWidth: "calc(100vh - 4rem)" }}
+        className="relative flex-1 w-full md:max-w-4xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl self-center rounded-md"
+        style={{ maxWidth: "calc(158.73vh - 16rem)" }}
         items={items}
         renderItem={({ item, index, isActive, isSnapPoint }) => (
           <CarouselItem
