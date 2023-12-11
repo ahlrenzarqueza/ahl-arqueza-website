@@ -126,7 +126,7 @@ export default function Home() {
           </p>
 
           <MotionImageCard
-            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100"
+            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100 invisible md:visible"
             src={PortraitOne}
           />
         </Element>
@@ -137,7 +137,7 @@ export default function Home() {
         >
           <About />
           <MotionImageCard
-            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100"
+            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100 invisible md:visible"
             src={PortraitTwo}
           />
         </Element>
