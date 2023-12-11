@@ -91,7 +91,7 @@ export default function Sidebar({
           </filter>
         </defs>
       </svg>
-      <div className="sidebar fixed md:sticky flex flex-row md:flex-col w-screen md:w-24 h-12 md:min-h-screen items-center justify-center left-0 md:left-100 bottom-0 md:top-0 border-t md:border-t-0 md:border-l border-gray-600 bg-black">
+      <div className="sidebar fixed md:sticky flex flex-row flex-shrink-0 md:flex-col w-screen md:w-24 h-12 md:min-h-screen items-center justify-center left-0 md:left-100 bottom-0 md:top-0 border-t md:border-t-0 md:border-l border-gray-600 bg-black">
         <div
           className="active-circle absolute w-16 h-12 md:w-24 md:h-24 bg-green-500 rounded-full -z-10"
           style={{

@@ -96,11 +96,11 @@ export default function Home() {
   return (
     <main
       id="scrollContainer"
-      className="flex flex-col md:flex-row h-screen flex-nowrap bg-black overflow-auto overflow-x-hidden"
+      className="flex flex-col md:flex-row h-screen w-screen flex-nowrap bg-black overflow-auto overflow-x-hidden"
       onScroll={(evt) => handleScroll(evt.target as HTMLDivElement)}
       ref={scrollContainerRef}
     >
-      <div className="flex flex-col flex-1 items-center justify-between overflow-visible pb-12 md:pb-0">
+      <div className="flex flex-col flex-1 items-center justify-between overflow-visible pb-12 md:pb-0 w-screen md:w-5/6">
         <Element
           name={SiteSections.HOME}
           className="relative section flex flex-col flex-1 justify-center px-12 min-h-screen md:min-w-full max-h-screen overflow-hidden"
@@ -155,7 +155,7 @@ export default function Home() {
 
         <Element
           name={SiteSections.EXPERIENCE}
-          className="section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen overflow-hidden pb-12 md:pb-0"
+          className="relative section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen max-h-screen w-full overflow-hidden pb-12 md:pb-0"
         >
           <Experience />
         </Element>

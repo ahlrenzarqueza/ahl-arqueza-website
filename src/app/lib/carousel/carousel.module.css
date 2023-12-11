@@ -26,11 +26,19 @@
   display: none;
 }
 
-.item {
+.itemImageType {
   width: 100%;
   flex-shrink: 0;
   position: relative;
   padding-bottom: 56.25%;
+  overflow: hidden;
+  /* margin: 0 1%; */
+}
+
+.item {
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
   overflow: hidden;
   /* margin: 0 1%; */
 }

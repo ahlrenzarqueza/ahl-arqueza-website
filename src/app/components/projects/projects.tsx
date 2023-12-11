@@ -1,6 +1,6 @@
 "use client";
 
-import { Carousel, CarouselItem } from "@/app/lib/carousel/carousel";
+import { Carousel, CarouselImageItem } from "@/app/lib/carousel/carousel";
 import RoundtableImage from "@/../public/project-images/Roundtable.png";
 import AutocadoImage from "@/../public/project-images/Autocado.png";
 import FreezerIoTImage from "@/../public/project-images/FreezerIoT.png";
@@ -31,7 +31,7 @@ export default function Projects() {
         style={{ maxWidth: "calc(158.73vh - 16rem)" }}
         items={items}
         renderItem={({ item, index, isActive, isSnapPoint }) => (
-          <CarouselItem
+          <CarouselImageItem
             key={index}
             isSnapPoint={isSnapPoint}
             isActive={isActive}

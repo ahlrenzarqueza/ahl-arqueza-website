@@ -1,101 +1,220 @@
 "use client";
 
+import { Carousel, CarouselItem } from "@/app/lib/carousel/carousel";
 import Image from "next/image";
-import ReactTypingEffect from "react-typing-effect";
+import AllTakesImage from "@/../public/company-images/alltakes.webp";
+import SamsungImage from "@/../public/company-images/samsung.png";
+import OutliantImage from "@/../public/company-images/outliant.jpeg";
+import SqreemImage from "@/../public/company-images/Sqreem.png";
+import Link from "next/link";
 
 export default function Experience() {
+  const experienceItems = [
+    {
+      children: (
+        <div className="flex mb-4">
+          <Link
+            className="mr-2 md:mr-8 flex-shrink-0"
+            href="https://roundtable.alltakes.com"
+            target="_blank"
+          >
+            <Image
+              className="object-fill rounded-full border-2 border-green-500 w-16 md:w-32 inline-block"
+              src={AllTakesImage}
+              alt="AllTakes Company Logo"
+            />
+          </Link>
+          <div className="inline-flex flex-col">
+            <span className="text-xl md:text-4xl text-green-500">
+              Full Stack Software Engineer
+            </span>
+            <span className="uppercase">
+              Oct 2021 - Present{" "}
+              <span className="text-gray-500">(FULL-TIME)</span>
+            </span>
+            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+              <span>AllTakes</span>
+              <span className="text-gray-500">|</span>
+              <span>🇺🇸 San Francisco, California</span>
+            </span>
+
+            <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
+              <li>
+                Developed from scratch a <b>video-conferencing web platform</b>
+              </li>
+              <li>
+                Maintained backend and cloud architecture code written in{" "}
+                <b>NodeJS and AWS CloudFormation templates</b>
+              </li>
+              <li>
+                Integrated AI tools, such as ChatGPT and Whisper to platform
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      children: (
+        <div className="flex mb-4">
+          <Link
+            className="mr-2 md:mr-8 flex-shrink-0"
+            href="https://www.outliant.com/"
+            target="_blank"
+          >
+            <Image
+              className="object-fill rounded-full border-2 border-green-500 w-16 md:w-32 inline-block"
+              src={OutliantImage}
+              alt="Outliant Company Logo"
+            />
+          </Link>
+          <div className="inline-flex flex-col">
+            <span className="text-xl md:text-4xl text-green-500">
+              Full Stack Software Engineer
+            </span>
+
+            <span className="uppercase">
+              Mar 2022 - Jun 2023{" "}
+              <span className="text-gray-500">(CONTRACTOR)</span>
+            </span>
+            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+              <span className="">Outliant</span>
+              <span className="text-gray-500">|</span>
+              <span>🇺🇸 Austin, Texas</span>
+            </span>
+
+            <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
+              <li>
+                Lead development of an e-commerce website from scratch using
+                NextJS
+              </li>
+              <li>
+                Developed mobile app for accessing freezer monitoring devices
+                using AWS IoT
+              </li>
+              <li>
+                Supervised micro-services orchestration of GraphQL and MongoDB
+                instances in the cloud
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      children: (
+        <div className="flex mb-4">
+          <Link
+            className="mr-2 md:mr-8 flex-shrink-0"
+            href="https://research.samsung.com/srph?gad_source=1&gclid=CjwKCAiAg9urBhB_EiwAgw88mWdfFoh7GxJ53_ZasKDs3UUqSOtDkKR_lA8ujvSm_u4CBsmbBjSCChoCPjMQAvD_BwE"
+            target="_blank"
+          >
+            <Image
+              className="object-fill rounded-full border-2 border-green-500 w-16 md:w-32 inline-block"
+              src={SamsungImage}
+              alt="Samsung Electronics Company Logo"
+            />
+          </Link>
+          <div className="inline-flex flex-col">
+            <span className="text-xl md:text-4xl text-green-500">
+              Frontend Engineer
+            </span>
+
+            <span className="uppercase">
+              Oct 2020 - Mar 2022{" "}
+              <span className="text-gray-500">(FULL-TIME)</span>
+            </span>
+            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+              <span className="">Samsung Electronics</span>
+              <span className="text-gray-500">|</span>
+              <span>🇵🇭 Taguig, Manila</span>
+            </span>
+
+            <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
+              <li>
+                Implemented two (2) major Web applications to Japan telecom
+                vendors
+              </li>
+              <li>
+                Contributed on proprietary React component library of Samsung
+              </li>
+              <li>
+                Participated in AWS training activities, which lead to achieve
+                AWS Solutions Architect – Professional certification.
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      children: (
+        <div className="flex mb-4">
+          <Link
+            className="mr-2 md:mr-8 flex-shrink-0"
+            href="https://sqreemtech.com/"
+            target="_blank"
+          >
+            <Image
+              className="object-fill rounded-full border-2 border-green-500 w-16 md:w-32 inline-block"
+              src={SqreemImage}
+              alt="Sqreem Technologies Logo"
+            />
+          </Link>
+          <div className="inline-flex flex-col">
+            <span className="text-xl md:text-4xl text-green-500">
+              Systems Analyst
+            </span>
+
+            <span className="uppercase">
+              Oct 2020 - Mar 2022{" "}
+              <span className="text-gray-500">(FULL-TIME)</span>
+            </span>
+            <span className="flex flex-row items-center text-sm md:text-2xl space-x-4">
+              <span className="">Sqreem Technologies Pte. Ltd.</span>
+              <span className="text-gray-500">|</span>
+              <span>🇵🇭 Manila and 🇸🇬 Singapore</span>
+            </span>
+
+            <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
+              <li>
+                Maintained a JS framework capable of architecting web controls
+                and functions that can be reused on any web application
+              </li>
+              <li>
+                Formulated system architectures client-facing web apps such as
+                CRM and BI tools.
+              </li>
+              <li>
+                Promoted after two (2) years and lead a Frontend team of ten
+                (10) members
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+  ];
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden w-full">
       <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-4">
         Experience
       </h1>
-      <div className="flex mb-4">
-        <Image
-          className="object-contain rounded-full border-2 border-green-500 w-8 h-8 inline-block mr-2"
-          src="/company-images/alltakes.webp"
-          alt="AllTakes Company Logo"
-          width={48}
-          height={48}
-        />
-        <div className="inline-flex flex-col">
-          <span className="text-lg md:text-2xl">
-            Full Stack Software Engineer
-          </span>
-          <span className="uppercase text-sm md:text-lg mb-2">AllTakes</span>
 
-          <ul className="list-disc">
-            <li>
-              Developed from scratch a <b>video-conferencing web platform</b>
-            </li>
-            <li>
-              Maintained backend and cloud architecture code written in NodeJS
-              and AWS CloudFormation templates
-            </li>
-            <li>
-              Integrated AI tools, such as ChatGPT and Whisper to platform
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="flex mb-4">
-        <Image
-          className="object-contain rounded-full border-2 border-green-500 w-8 h-8 inline-block mr-2"
-          src="/company-images/samsung.png"
-          alt="Samsung Electronics Company Logo"
-          width={48}
-          height={48}
-        />
-        <div className="inline-flex flex-col">
-          <span className="text-lg md:text-2xl">
-            Frontend Software Engineer
-          </span>
-          <span className="uppercase text-sm md:text-lg mb-2">
-            Samsung Electronics
-          </span>
-
-          <ul className="list-disc">
-            <li>
-              Implemented two (2) major Web applications to Japan telecom
-              vendors
-            </li>
-            <li>
-              Contributed on proprietary React component library of Samsung
-            </li>
-            <li>
-              Participated in AWS training activities, which lead to achieve AWS
-              Solutions Architect – Professional certification.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="flex items-start mt-4">
-        <div className="rounded-full border-2 border-green-500 w-8 h-8 text-center animate-spin flex-shrink-0">
-          ֯
-        </div>
-        <div className="flex flex-col ml-2">
-          <div>
-            <ReactTypingEffect
-              className="mb-4"
-              speed={50}
-              eraseDelay={60000}
-              staticText="There's more but"
-              text="honestly I need to strategically fit them altogether here. 🙇 Please stay tuned, I'll work on this 👷‍♂️"
-            />
-          </div>
-          <p className="block font-semibold italic">
-            For the meantime, you can view my full resume{" "}
-            <a
-              className="underline text-green-500"
-              target="_blank"
-              href="/Ahl Arqueza (Full Stack Engineer) Resume.pdf"
-            >
-              here!
-            </a>
-          </p>
-        </div>
-      </div>
+      <Carousel
+        className="relative flex-1 w-full max-w-full self-center rounded-md"
+        items={experienceItems}
+        renderItem={({ index, isActive, isSnapPoint, item }) => (
+          <CarouselItem
+            className="p-4 md:p-8 md:px-12"
+            key={index}
+            isSnapPoint={isSnapPoint}
+            isActive={isActive}
+          >
+            {item.children}
+          </CarouselItem>
+        )}
+      />
     </div>
   );
 }

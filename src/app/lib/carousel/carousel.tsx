@@ -10,7 +10,7 @@ export interface CarouselProps<T> {
   readonly items: T[];
   readonly renderItem: (
     props: CarouselRenderItemProps<T>
-  ) => React.ReactElement<CarouselItemProps>;
+  ) => React.ReactElement<CarouselImageItemProps>;
   readonly scrollPadding?: boolean;
   readonly className?: string;
   readonly style?: CSSProperties;
@@ -112,14 +112,14 @@ export const Carousel = <T extends any>({
       </div>
 
       <button
-        className="outline-none bg-transparent absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 z-10"
+        className="outline-none bg-transparent absolute top-1/2 left-0 transform -translate-y-1/2 z-10"
         onClick={() => prev()}
       >
         <ChevronLeftIcon className="w-8 h-8 text-gray-400 hover:text-white" />
       </button>
 
       <button
-        className="outline-none bg-transparent absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 z-10"
+        className="outline-none bg-transparent absolute top-1/2 right-0 transform -translate-y-1/2 z-10"
         onClick={() => next()}
       >
         <ChevronRightIcon className="w-8 h-8 text-gray-400 hover:text-white" />
@@ -128,7 +128,7 @@ export const Carousel = <T extends any>({
   );
 };
 
-export interface CarouselItemProps {
+export interface CarouselImageItemProps {
   readonly isSnapPoint: boolean;
   readonly isActive: boolean;
   readonly src: StaticImageData | string;
@@ -137,13 +137,37 @@ export interface CarouselItemProps {
   readonly className?: string;
 }
 
-export const CarouselItem = ({
+export const CarouselImageItem = ({
   isSnapPoint,
   isActive,
   src,
   title,
-  subtitle,
   className,
+}: CarouselImageItemProps) => {
+  return (
+    <li
+      className={classNames(className, styles.itemImageType, {
+        [styles.snapPoint]: isSnapPoint,
+        [styles.itemActive]: isActive,
+      })}
+    >
+      <Image src={src} className={classNames(styles.itemImage)} alt={title} />
+    </li>
+  );
+};
+
+export interface CarouselItemProps {
+  readonly isSnapPoint: boolean;
+  readonly isActive: boolean;
+  readonly children: React.ReactNode;
+  readonly className?: string;
+}
+
+export const CarouselItem = ({
+  isSnapPoint,
+  isActive,
+  className,
+  children,
 }: CarouselItemProps) => {
   return (
     <li
@@ -152,11 +176,7 @@ export const CarouselItem = ({
         [styles.itemActive]: isActive,
       })}
     >
-      <Image
-        src={src}
-        className={classNames(styles.itemImage)}
-        alt={subtitle}
-      />
+      {children}
     </li>
   );
 };
