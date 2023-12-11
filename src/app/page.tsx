@@ -14,6 +14,7 @@ import MotionImageCard from "./lib/motion-card/motion-card";
 
 import PortraitOne from "@/../public/portrait-images/portrait-1.png";
 import PortraitTwo from "@/../public/portrait-images/portrait-2.png";
+import classNames from "classnames";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -102,7 +103,7 @@ export default function Home() {
       <div className="flex flex-col flex-1 items-center justify-between overflow-visible pb-12 md:pb-0">
         <Element
           name={SiteSections.HOME}
-          className="relative section flex flex-col flex-1 justify-center px-12 mr-auto min-h-screen md:min-w-full max-h-screen overflow-hidden"
+          className="relative section flex flex-col flex-1 justify-center px-12 min-h-screen md:min-w-full max-h-screen overflow-hidden"
         >
           <p className="mb-2 md:mb-6 md:text-3xl">Hi! I am</p>
           <h1 className="text-green-500 font-semibold text-3xl md:text-7xl mb-2 md:mb-6">
@@ -126,7 +127,12 @@ export default function Home() {
           </p>
 
           <MotionImageCard
-            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100 invisible md:visible"
+            className={classNames(
+              "absolute w-3/4 md:w-4/12",
+              "transform -translate-x-1/2",
+              "md:-translate-x-0 left-1/2 md:left-2/3 bottom-12 md:bottom-0",
+              "opacity-50 md:opacity-100"
+            )}
             src={PortraitOne}
           />
         </Element>
@@ -137,7 +143,12 @@ export default function Home() {
         >
           <About />
           <MotionImageCard
-            className="w-3/4 md:w-4/12 md:right-12 bottom-8 md:bottom-0 opacity-50 md:opacity-100 invisible md:visible"
+            className={classNames(
+              "absolute w-3/4 md:w-4/12",
+              "transform -translate-x-1/2",
+              "md:-translate-x-0 left-1/2 md:left-2/3 bottom-12 md:bottom-0",
+              "opacity-50 md:opacity-100"
+            )}
             src={PortraitTwo}
           />
         </Element>
