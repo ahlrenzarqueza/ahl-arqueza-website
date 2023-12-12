@@ -31,18 +31,6 @@ export default function Sidebar({
   const activeColorClass = (target: SiteSections) =>
     section === target ? "text-white" : "text-gray-600";
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleSetActive = useCallback(
-    debounce(
-      (to: string) => {
-        setActiveSection(to as SiteSections);
-      },
-      300,
-      { leading: false, trailing: true }
-    ),
-    [setActiveSection]
-  );
-
   const [anchorNavRect, setAnchorNavRect] = useState<DOMRect | null>(null);
 
   useEffect(() => {
@@ -91,18 +79,18 @@ export default function Sidebar({
           </filter>
         </defs>
       </svg>
-      <div className="sidebar fixed md:sticky flex flex-row flex-shrink-0 md:flex-col w-screen md:w-24 h-12 md:min-h-screen items-center justify-center left-0 md:left-100 bottom-0 md:top-0 border-t md:border-t-0 md:border-l border-gray-600 bg-black">
+      <div className="sidebar fixed flex flex-row flex-shrink-0 md:flex-col w-screen md:w-24 h-12 md:min-h-screen items-center justify-center md:right-0 bottom-0 md:top-0 border-t md:border-t-0 md:border-l border-gray-600 bg-black z-10">
         <div
           className="active-circle absolute w-16 h-12 md:w-24 md:h-24 bg-green-500 rounded-full -z-10"
           style={{
             top: isMobile ? "" : `${anchorNavRect?.top}px`,
             left: isMobile ? `${anchorNavRect?.left}px` : "",
             transform: isMobile
-              ? `translateX(${scrollPercentage * 5}%) scale(1.2)`
-              : `translateY(${scrollPercentage * 5}%) scale(1.5)`,
+              ? `translateX(${scrollPercentage * 6}%) scale(1.2)`
+              : `translateY(${scrollPercentage * 6}%) scale(1.5)`,
             WebkitTransform: isMobile
-              ? `translateX(${scrollPercentage * 5}%) scale(1.2)`
-              : `translateY(${scrollPercentage * 5}%) scale(1.5)`,
+              ? `translateX(${scrollPercentage * 6}%) scale(1.2)`
+              : `translateY(${scrollPercentage * 6}%) scale(1.5)`,
             visibility: anchorNavRect ? "visible" : "hidden",
           }}
         ></div>
@@ -110,9 +98,7 @@ export default function Sidebar({
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer"
           to={SiteSections.HOME}
           smooth
-          spy
           containerId="scrollContainer"
-          onSetActive={handleSetActive}
           duration={300}
         >
           <div
@@ -131,9 +117,7 @@ export default function Sidebar({
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.ABOUT}
           smooth
-          spy
           containerId="scrollContainer"
-          onSetActive={handleSetActive}
           duration={300}
         >
           <UserIcon
@@ -147,9 +131,7 @@ export default function Sidebar({
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.EXPERIENCE}
           smooth
-          spy
           containerId="scrollContainer"
-          onSetActive={handleSetActive}
           duration={300}
         >
           <BriefcaseIcon
@@ -163,9 +145,7 @@ export default function Sidebar({
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.SKILLS}
           smooth
-          spy
           containerId="scrollContainer"
-          onSetActive={handleSetActive}
           duration={300}
         >
           <CodeBracketIcon
@@ -179,9 +159,7 @@ export default function Sidebar({
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.PROJECTS}
           smooth
-          spy
           containerId="scrollContainer"
-          onSetActive={handleSetActive}
           duration={300}
         >
           <PresentationChartBarIcon
@@ -195,9 +173,7 @@ export default function Sidebar({
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.CONTACT}
           smooth
-          spy
           containerId="scrollContainer"
-          onSetActive={handleSetActive}
           duration={300}
         >
           <PhoneIcon

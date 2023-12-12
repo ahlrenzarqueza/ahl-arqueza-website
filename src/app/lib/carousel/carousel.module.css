@@ -14,7 +14,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   box-sizing: border-box;
-  overscroll-behavior: contain;
 }
 
 .scrollPadding .scroll {

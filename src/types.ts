@@ -1,8 +1,8 @@
 export enum SiteSections {
   HOME = "home",
   ABOUT = "about",
-  SKILLS = "skills",
   EXPERIENCE = "experience",
+  SKILLS = "skills",
   PROJECTS = "projects",
   CONTACT = "contact",
 }
