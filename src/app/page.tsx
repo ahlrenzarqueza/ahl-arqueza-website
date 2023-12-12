@@ -47,10 +47,12 @@ export default function Home() {
   useEffect(() => {
     if (searchParams.get("section") === activeSection) return;
 
+    const url = new URL(window.location.href);
     if (activeSection === SiteSections.HOME) {
-      router.push("/", { shallow: true });
+      router.push(url.href, { shallow: true });
     } else {
-      router.push(`/?section=${activeSection}`, { shallow: true });
+      url.searchParams.set("section", activeSection);
+      router.push(url.href, { shallow: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSection]);
