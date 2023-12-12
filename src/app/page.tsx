@@ -16,6 +16,7 @@ import PortraitTwo from "@/../public/portrait-images/portrait-2.png";
 import classNames from "classnames";
 
 import "./page.css";
+import { throttle } from "lodash";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -32,26 +33,38 @@ export default function Home() {
   const scrollContainerRef = useRef<HTMLElement | null>(null);
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
-  const handleScroll = useCallback((target: HTMLDivElement) => {
-    const { scrollTop, scrollHeight, clientHeight } = target as HTMLDivElement;
-    const scrollPercentage = (scrollTop / scrollHeight) * 100;
-    setScrollPercentage(scrollPercentage);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const setScrollWithThrottle = useCallback(
+    throttle((percentage: number) => {
+      setScrollPercentage(percentage);
+    }, 100),
+    []
+  );
 
-    const div = scrollTop % clientHeight;
-    if (scrollPercentage >= (5 / 6) * 100) {
-      setActiveSection(SiteSections.CONTACT);
-    } else if (scrollPercentage >= (2 / 3) * 100) {
-      setActiveSection(SiteSections.PROJECTS);
-    } else if (scrollPercentage >= (1 / 2) * 100) {
-      setActiveSection(SiteSections.SKILLS);
-    } else if (scrollPercentage >= (1 / 3) * 100) {
-      setActiveSection(SiteSections.EXPERIENCE);
-    } else if (scrollPercentage >= (1 / 6) * 100) {
-      setActiveSection(SiteSections.ABOUT);
-    } else {
-      setActiveSection(SiteSections.HOME);
-    }
-  }, []);
+  const handleScroll = useCallback(
+    (target: HTMLDivElement) => {
+      const { scrollTop, scrollHeight, clientHeight } =
+        target as HTMLDivElement;
+      const perc = (scrollTop / scrollHeight) * 100;
+
+      setScrollWithThrottle(perc);
+
+      if (perc >= (5 / 6) * 100) {
+        setActiveSection(SiteSections.CONTACT);
+      } else if (perc >= (2 / 3) * 100) {
+        setActiveSection(SiteSections.PROJECTS);
+      } else if (perc >= (1 / 2) * 100) {
+        setActiveSection(SiteSections.SKILLS);
+      } else if (perc >= (1 / 3) * 100) {
+        setActiveSection(SiteSections.EXPERIENCE);
+      } else if (perc >= (1 / 6) * 100) {
+        setActiveSection(SiteSections.ABOUT);
+      } else {
+        setActiveSection(SiteSections.HOME);
+      }
+    },
+    [setScrollWithThrottle]
+  );
 
   // Set pathname when section changes
   useEffect(() => {
