@@ -1,4 +1,10 @@
 #scrollContainer {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#scrollContainer::-webkit-scrollbar {
+  display: none;
 }

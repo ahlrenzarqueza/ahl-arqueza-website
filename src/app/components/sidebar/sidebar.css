@@ -5,4 +5,8 @@
 .active-circle {
   transition: transform 0.2s linear;
   -webkit-transition: transform 0.2s linear;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
