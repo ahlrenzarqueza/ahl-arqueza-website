@@ -13,7 +13,6 @@ import classNames from "classnames";
 import "./sidebar.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useViewport } from "@/app/hooks/useViewport";
-import { debounce } from "lodash";
 
 interface SidebarProps {
   section: SiteSections;
@@ -86,11 +85,11 @@ export default function Sidebar({
             top: isMobile ? "" : `${anchorNavRect?.top}px`,
             left: isMobile ? `${anchorNavRect?.left}px` : "",
             transform: isMobile
-              ? `translateX(${scrollPercentage * 6}%) scale(1.2)`
-              : `translateY(${scrollPercentage * 6}%) scale(1.5)`,
+              ? `translateX(${scrollPercentage * 5}%) scale(1.2)`
+              : `translateY(${scrollPercentage * 5}%) scale(1.5)`,
             WebkitTransform: isMobile
-              ? `translateX(${scrollPercentage * 6}%) scale(1.2)`
-              : `translateY(${scrollPercentage * 6}%) scale(1.5)`,
+              ? `translateX(${scrollPercentage * 5}%) scale(1.2)`
+              : `translateY(${scrollPercentage * 5}%) scale(1.5)`,
             visibility: anchorNavRect ? "visible" : "hidden",
           }}
         ></div>
@@ -141,7 +140,7 @@ export default function Sidebar({
             )}
           />
         </Link>
-        <Link
+        {/* <Link
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.SKILLS}
           smooth
@@ -154,7 +153,7 @@ export default function Sidebar({
               activeColorClass(SiteSections.SKILLS)
             )}
           />
-        </Link>
+        </Link> */}
         <Link
           className="flex items-center justify-center h-8 md:h-24 w-16 cursor-pointer px-3 md:px-0"
           to={SiteSections.PROJECTS}

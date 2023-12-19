@@ -20,6 +20,7 @@ import { throttle } from "lodash";
 
 export default function Home() {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const sectionFromSearch = searchParams.get("section");
   const [activeSection, setActiveSection] = useState<SiteSections>(() => {
@@ -49,15 +50,13 @@ export default function Home() {
 
       setScrollWithThrottle(perc);
 
-      if (perc >= (5 / 6) * 100) {
+      if (perc >= (4 / 5) * 100) {
         setActiveSection(SiteSections.CONTACT);
-      } else if (perc >= (2 / 3) * 100) {
+      } else if (perc >= (3 / 5) * 100) {
         setActiveSection(SiteSections.PROJECTS);
-      } else if (perc >= (1 / 2) * 100) {
-        setActiveSection(SiteSections.SKILLS);
-      } else if (perc >= (1 / 3) * 100) {
+      } else if (perc >= (2 / 5) * 100) {
         setActiveSection(SiteSections.EXPERIENCE);
-      } else if (perc >= (1 / 6) * 100) {
+      } else if (perc >= (1 / 5) * 100) {
         setActiveSection(SiteSections.ABOUT);
       } else {
         setActiveSection(SiteSections.HOME);
@@ -70,18 +69,26 @@ export default function Home() {
   useEffect(() => {
     if (searchParams.get("section") === activeSection) return;
 
+    const updateUrl = (href: string) => {
+      if (process.env.NODE_ENV === "development") {
+        // Temporarily use history.replaceState in dev as there is a bug with next/router shallow navigation
+        // https://github.com/vercel/next.js/discussions/48110
+        history.replaceState({}, "", href);
+      } else {
+        router.push(href, { shallow: true });
+      }
+    };
+
     const url = new URL(window.location.href);
     if (activeSection === SiteSections.HOME) {
       url.searchParams.delete("section");
-      // Temporarily use history.replaceState as there is a bug with next/router shallow navigation
-      // https://github.com/vercel/next.js/discussions/48110
-      history.replaceState({}, "", url.href);
+      updateUrl(url.href);
     } else {
       url.searchParams.set("section", activeSection);
-      history.replaceState({}, "", url.href);
+      updateUrl(url.href);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeSection]);
+  }, [activeSection, searchParams]);
 
   useEffect(() => {
     // Scroll initially to section from search params
@@ -112,7 +119,7 @@ export default function Home() {
   return (
     <main
       id="scrollContainer"
-      className="flex flex-col w-screen flex-nowrap bg-black overflow-scroll overflow-x-hidden snap-y snap-mandatory mr-0 md:mr-12 scroll-smooth"
+      className="flex flex-col w-screen flex-nowrap bg-black overflow-scroll overflow-x-hidden snap-y snap-mandatory mr-0 md:mr-12 scroll-smooth pr-0 md:pr-24"
       onScroll={(evt) => handleScroll(evt.target as HTMLDivElement)}
       ref={scrollContainerRef}
     >
@@ -171,16 +178,6 @@ export default function Home() {
         className="relative section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full w-full overflow-hidden pb-12 md:pb-0 snap-start"
       >
         <Experience />
-      </Element>
-
-      <Element
-        name={SiteSections.SKILLS}
-        className="section flex flex-col flex-1 justify-center px-6 md:px-12 mr-auto min-h-full max-h-full overflow-hidden pb-12 md:pb-0 snap-start"
-      >
-        <h1 className="text-green-500 font-semibold text-3xl md:text-6xl mb-6">
-          Skills
-        </h1>
-        <WorkInProgressInfo />
       </Element>
 
       <Element

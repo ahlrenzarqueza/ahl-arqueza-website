@@ -32,7 +32,7 @@ export default function Experience() {
               Oct 2021 - Present{" "}
               <span className="text-gray-500">(FULL-TIME)</span>
             </span>
-            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4 mb-4">
               <span>AllTakes</span>
               <span className="text-gray-500 hidden md:inline">|</span>
               <span>
@@ -41,13 +41,42 @@ export default function Experience() {
               </span>
             </span>
 
+            <div className="flex flex-wrap text-sm font-semibold items-center space-x-2 space-y-2 -ml-10 md:ml-0">
+              <span className="mt-2 mr-2">Skills:</span>
+              <span className="rounded-md border-green-500 border px-4">
+                React.js
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Typescript
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                AWS CloudFormation
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Node.js
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                OpenAI
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Stripe
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Python
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                GitHub Actions
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Jest / Cypress
+              </span>
+            </div>
+
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
+              <li>Developed from scratch a video-conferencing web platform</li>
               <li>
-                Developed from scratch a <b>video-conferencing web platform</b>
-              </li>
-              <li>
-                Maintained backend and cloud architecture code written in{" "}
-                <b>NodeJS and AWS CloudFormation templates</b>
+                Maintained backend API and cloud architecture thru
+                Infrastructure as Code (IaC)
               </li>
               <li>
                 Integrated AI tools, such as ChatGPT and Whisper to platform
@@ -80,7 +109,7 @@ export default function Experience() {
               Mar 2022 - Jun 2023{" "}
               <span className="text-gray-500">(CONTRACTOR)</span>
             </span>
-            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4 mb-4">
               <span className="">Outliant</span>
               <span className="text-gray-500 hidden md:inline">|</span>
               <span>
@@ -89,10 +118,38 @@ export default function Experience() {
               </span>
             </span>
 
+            <div className="flex flex-wrap text-sm font-semibold items-center space-x-2 space-y-2 -ml-10 md:ml-0">
+              <span className="mt-2 mr-2">Skills:</span>
+              <span className="rounded-md border-green-500 border px-4">
+                Next.js
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Typescript
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Node.js
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                AWS CloudFront
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                AWS Lambda
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Apollo GraphQL
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                MongoDB
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Kafka / SQS
+              </span>
+            </div>
+
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
               <li>
                 Lead development of an e-commerce website from scratch using
-                NextJS
+                Next.js
               </li>
               <li>
                 Developed mobile app for accessing freezer monitoring devices
@@ -130,7 +187,7 @@ export default function Experience() {
               Oct 2020 - Mar 2022{" "}
               <span className="text-gray-500">(FULL-TIME)</span>
             </span>
-            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4 mb-4">
               <span className="">Samsung Electronics</span>
               <span className="text-gray-500 hidden md:inline">|</span>
               <span>
@@ -138,6 +195,28 @@ export default function Experience() {
                 <span className="hidden md:inline">Manila</span>
               </span>
             </span>
+
+            <div className="flex flex-wrap text-sm font-semibold items-center space-x-2 space-y-2 -ml-10 md:ml-0">
+              <span className="mt-2 mr-2">Skills:</span>
+              <span className="rounded-md border-green-500 border px-4">
+                React.js
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Webpack
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Typescript
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Java
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Docker
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                AWS EC2 & Fargate
+              </span>
+            </div>
 
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
               <li>
@@ -179,7 +258,7 @@ export default function Experience() {
               Oct 2020 - Mar 2022{" "}
               <span className="text-gray-500">(FULL-TIME)</span>
             </span>
-            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4">
+            <span className="flex flex-col md:flex-row items-start md:items-center text-lg md:text-xl space-x-0 md:space-x-4 mb-4">
               <span className="">Sqreemtech Pte. Ltd.</span>
               <span className="text-gray-500 hidden md:inline">|</span>
               <span>
@@ -189,6 +268,25 @@ export default function Experience() {
                 <span className="hidden md:inline">Singapore</span>
               </span>
             </span>
+
+            <div className="flex flex-wrap text-sm font-semibold items-center space-x-2 space-y-2 -ml-10 md:ml-0">
+              <span className="mt-2 mr-2">Skills:</span>
+              <span className="rounded-md border-green-500 border px-4">
+                Vanilla JS
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                AWS S3
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                Google SEO / Analytics
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                d3.js
+              </span>
+              <span className="rounded-md border-green-500 border px-4">
+                UI / UX Fundamentals
+              </span>
+            </div>
 
             <ul className="list-disc mt-4 -ml-8 md:ml-4 text-lg md:text-xl">
               <li>
