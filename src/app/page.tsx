@@ -119,7 +119,7 @@ export default function Home() {
   return (
     <main
       id="scrollContainer"
-      className="flex flex-col w-screen flex-nowrap bg-black overflow-scroll overflow-x-hidden snap-y snap-mandatory mr-0 md:mr-12 scroll-smooth pr-0 md:pr-24"
+      className="flex flex-col w-screen flex-nowrap bg-black overflow-scroll overflow-x-hidden snap-y snap-mandatory mr-0 md:mr-12 scroll-smooth pr-0 md:pr-24 text-white"
       onScroll={(evt) => handleScroll(evt.target as HTMLDivElement)}
       ref={scrollContainerRef}
     >
